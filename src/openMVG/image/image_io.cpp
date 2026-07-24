@@ -850,6 +850,9 @@ bool Read_TIFF_ImageHeader(const char * filename, ImageHeader * imgheader)
 {
   bool bStatus = false;
 
+  // Svilen
+  TIFFSetWarningHandler(NULL);
+
   TIFF* tiff = TIFFOpen(filename, "r");
   if (!tiff) {
     OPENMVG_LOG_ERROR << "Cannot open TIFF image: " << filename << ".";
